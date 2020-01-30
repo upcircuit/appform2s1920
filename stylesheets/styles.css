@@ -1,56 +1,174 @@
 @font-face {
-     font-family: AliceInWonderland;
-     src: url(../fonts/Alice_in_Wonderland_3.ttf);
-   }
-   
-   body, html{
+     font-family: 'headers';
+     src: url(../fonts/DK_Lemon_Yellow_Sun.otf);
+}
+
+body, html{
+     overflow: hidden;
      margin: 0;
      font-size: 16px;
-     font-family: 'champagne__limousinesregular', sans-serif;
+     font-family: 'headers';
      font-weight: 400;
      line-height: 1.8em;
      color: #a2bce2;
      background-color: #a2bce2;
-   }
-   
-   img{
+}
+
+/* img{
      text-align: center;
      width: 100%;
      background-color: transparent;
-   }
-   
-   /* Disabling text selection */
-   .no-select {
+} */
+     
+/* Disabling text selection */
+.no-select {
      -webkit-touch-callout: none; /* iOS Safari */
-       -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-          -moz-user-select: none; /* Firefox */
-           -ms-user-select: none; /* Internet Explorer/Edge */
-               user-select: none; /* Non-prefixed version, currently
-                                     supported by Chrome and Opera */
-   }
-   
-   /* Down button color */
-   #show1{
-     border-color: #999;
-   }
-   #span1{
-     color: #999;
-   }
-   #show1:active, #show1:focus{
-     outline: none;
-   }
-   #show1:hover{
-     cursor: pointer;
-     border-color: brown;
-     transition: all 0.2s ease-in-out;
-   }
-   #show1:hover > #span1 {
-     color: brown;
-     transition: all 0.2s ease-in-out;
-   }
-   /* Landscape Orientation Warning */
-   #landscapeForcer{
+     -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+     -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/* for layered images */
+.layered-img img {
+     bottom: 0%;
+     right: 0%;
+     position: absolute;
+     /* z-index: 99; */
+     width: 100vw;
+     height: 100vh;
+}
+
+/* Loading Screen CSS */
+#loadingscreen{
+     background-color: #a2bce2;
+     position: fixed;
+     height: 100%;
+     width: 100%;
+     overflow: hidden;
+     top: 0;
+     left: 0;
+     z-index: 9999;
+     text-align: center;
+     -webkit-transition: opacity 1.5s;
+     transition: opacity 1.5s;
+}
+#loadingscreen span{
+     color: #dddddd;
+     width: 100vh;
+     padding: 0;
+}
+#loadingRing {
+     display: inline-block;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 256px;
+     height: 256px;
+     margin-left: -128px;
+     margin-top: -128px;
+}
+#loadingRing div {
+     box-sizing: border-box;
+     display: block;
+     position: absolute;
+     width: 256px;
+     height: 256px;
+     border: 8px solid #fff;
+     border-radius: 50%;
+     animation: lds-ring 1.2s cubic-bezier(0.17, .88, 0.73, .12) infinite;
+     border-color: #fff transparent transparent transparent;
+}
+#loadingRing div:nth-child(1) {
+     animation-delay: -0.45s;
+}
+#loadingRing div:nth-child(2) {
+     animation-delay: -0.3s;
+}
+#loadingRing div:nth-child(3) {
+     animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+     0% {
+          transform: rotate(0deg);
+     }
+     100% {
+          transform: rotate(360deg);
+     }
+}
+
+@-webkit-keyframes lds-ring {
+     0% {
+      transform: rotate(0deg);
+     }
+     100% {
+          transform: rotate(360deg);
+     }
+}
+
+@-moz-keyframes lds-ring {
+     0% {
+     transform: rotate(0deg);
+     }
+     100% {
+          transform: rotate(360deg);
+     }
+}
+     
+@-o-keyframes lds-ring {
+     0% {
+          transform: rotate(0deg);
+     }
+     100% {
+          transform: rotate(360deg);
+     }
+}
+
+#loadingscreen #logo {
+     position: relative;
+     width: 52vh;
+     height: 52vh;
+     top: 50%;
+     -webkit-transform: translateY(-56%);
+     transform: translateY(-56%);
+     -webkit-transition: opacity 1.5s;
+     transition: opacity 1.5s;
+     margin: auto;
+}
+#loadingscreen #circuit-logo {
+     z-index: 99999;
+     width: 100%;
+     height: 100%;
+     -webkit-animation-delay: 1.5s;
+     animation-delay: 1.5s;
+     -webkit-animation-timing-function: ease;
+     animation-timing-function: ease;
+     -webkit-transition: -webkit-transform 0.2s;
+     transition: -webkit-transform 0.2s;
+     transition: transform 0.2s;
+     transition: transform 0.2s, -webkit-transform 0.2s;
+} 
+#loadingscreen #circuit-logo:hover{
+     z-index: 99999;
+     transform: scale(1.1);
+     transition: all ease 500ms;
+}
+#loadingscreen #disclaimer {
+     z-index: 9999;
+     position: absolute;
+     bottom: 10%;
+     right: 50%;
+     -webkit-transform: translateX(50%);
+     transform: translateX(50%);
+     color: rgb(2, 2, 2);
+     font-size: 2.25vh;
+     text-align: center;
+}
+
+/* Landscape Orientation Warning */
+#landscapeForcer{
      display: block;
      background-color: #111111;
      position: fixed;
@@ -66,9 +184,8 @@
      -webkit-transition: opacity .5s ease-out;
      -moz-transition: opacity .5s ease-out;
      -o-transition: opacity .5s ease-out;
-   }
-   
-   #landscapeForcer span{
+}
+#landscapeForcer span{
      display: inline-block;
      color: #ffffff;
      font-size: 5vh;
@@ -79,53 +196,72 @@
      -webkit-transition: opacity .5s ease-out;
      -moz-transition: opacity .5s ease-out;
      -o-transition: opacity .5s ease-out;
-   }
-   
-   
-   @media screen and (orientation: portrait) {
+}
+
+@media screen and (orientation: portrait) {
      #landscapeForcer {
-       opacity: 1;
-       z-index: 9990;
+     opacity: 1;
+     z-index: 9990;
      }
-   
+     
      #landscapeForcer span{
-       opacity: 1;
+     opacity: 1;
      }
-   }
-   
-   /* Form Styling */
-   
-   .answerField div {
+}
+
+/* Form Styling */
+.queries{
+     /* background-image: url('../img/bg.png'); */
+     display: inline-block;
+     opacity: 0;
+     z-index: -9950;
+     position: absolute;
+     top: 25%;
+     bottom: 20%;
+     height: 80vh;
+     right: 25%;
+     left: 27%;
+     font-size: 33px;
+     width: 50%;
+     overflow-x: hidden;
+     color: #000000;
+     -webkit-transition: opacity 1.5s;
+     -webkit-transition-timing-function: ease-out;
+     transition: opacity 1.5s;
+     transition-timing-function: ease-out;
+}
+.answerField div {
      margin-bottom: 1vh;
-   }
-   
-   .answerField div input[type='text']{
-     line-height: 3vh;
-     color: #dfdfdf;
+}   
+.answerField div input[type='text']{
+     /* line-height: 3vh; */
+     /* color: #dfdfdf; */
      border: none;
-     border-bottom: 2px solid #dfdfdf;
+     /* border-bottom: 2px solid #dfdfdf; */
      background: transparent;
      text-align: center;
-   }
-   
-   .answerField .query input[type='text']{
+}
+.answerField .query input[type='text']{
      width: 100%;
-   }
-   
-   .answerField div input[type=button], input[type=submit], input[type=reset] {
+}
+.answerField div input[type=button], input[type=submit], input[type=reset] {
      background-color: transparent;
-     border: 1px solid #dfdfdf;
-     color: white;
+     color: black;
+     border-style: none;
+     outline: none;
      padding: 1vh 1vw;
      margin: 1vh 1vw;
-     text-decoration: none;
+     font-family: 'headers';
+     font-size: 30px;
      cursor: pointer;
-   }
-   
-   /* Exit Screen Styling */
-   .seeyou{
-     background-image: url('../img/form_after.png');
+}
+
+/* Exit Screen Styling */
+#end-container{
+     /* background-image: url('../img/form_after.png'); */
+     font-family: 'headers';
      position: absolute;
+     color: black;
      bottom: 0;
      height: 100vh;
      width: 100%;
@@ -138,162 +274,6 @@
      -webkit-transition-timing-function: ease-out;
      transition: opacity 1.5s;
      transition-timing-function: ease-out;
-   }
-   
-   /* Loading Screen CSS */
-   #loadingscreen{
-     background-color: #a2bce2;
-     position: fixed;
-     height: 100%;
-     width: 100%;
-     overflow: hidden;
-     top: 0;
-     left: 0;
-     z-index: 9999;
-     text-align: center;
-     -webkit-transition: opacity 1.5s;
-     transition: opacity 1.5s;
-   }
-   
-   #loadingscreen span{
-     color: #dddddd;
-     width: 100vh;
-     padding: 0;
-   }
-   
-   #loadingRing {
-     display: inline-block;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     width: 256px;
-     height: 256px;
-     margin-left: -128px;
-     margin-top: -128px;
-   }
-   
-   #loadingRing div {
-     box-sizing: border-box;
-     display: block;
-     position: absolute;
-     width: 256px;
-     height: 256px;
-     border: 8px solid #fff;
-     border-radius: 50%;
-     animation: lds-ring 1.2s cubic-bezier(0.17, .88, 0.73, .12) infinite;
-     border-color: #fff transparent transparent transparent;
-   }
-   
-   #loadingRing div:nth-child(1) {
-     animation-delay: -0.45s;
-   }
-   
-   #loadingRing div:nth-child(2) {
-     animation-delay: -0.3s;
-   }
-   
-   #loadingRing div:nth-child(3) {
-     animation-delay: -0.15s;
-   }
-   
-   @keyframes lds-ring {
-     0% {
-       transform: rotate(0deg);
-     }
-     100% {
-       transform: rotate(360deg);
-     }
-   }
-   
-   @-webkit-keyframes lds-ring {
-     0% {
-       transform: rotate(0deg);
-     }
-     100% {
-       transform: rotate(360deg);
-     }
-   }
-   
-   @-moz-keyframes lds-ring {
-     0% {
-       transform: rotate(0deg);
-     }
-     100% {
-       transform: rotate(360deg);
-     }
-   }
-   
-   @-o-keyframes lds-ring {
-     0% {
-       transform: rotate(0deg);
-     }
-     100% {
-       transform: rotate(360deg);
-     }
-   }
-   
-   #loadingscreen #logo {
-     position: relative;
-     width: 52vh;
-     height: 52vh;
-     top: 50%;
-     -webkit-transform: translateY(-56%);
-             transform: translateY(-56%);
-     -webkit-transition: opacity 1.5s;
-     transition: opacity 1.5s;
-     margin: auto;
-   }
-   
-   #loadingscreen #circuit-logo {
-     z-index: 99999;
-     width: 100%;
-     height: 100%;
-     -webkit-animation-delay: 1.5s;
-             animation-delay: 1.5s;
-     -webkit-animation-timing-function: ease;
-             animation-timing-function: ease;
-     -webkit-transition: -webkit-transform 0.2s;
-     transition: -webkit-transform 0.2s;
-     transition: transform 0.2s;
-     transition: transform 0.2s, -webkit-transform 0.2s;
-   }
-   
-   #loadingscreen #circuit-logo:hover{
-      z-index: 99999;
-      transform: scale(1.1);
-      transition: all ease 500ms;
-   }
-   
-   #loadingscreen #disclaimer {
-     z-index: 9999;
-     position: absolute;
-     bottom: 10%;
-     right: 50%;
-     -webkit-transform: translateX(50%);
-             transform: translateX(50%);
-     color: rgb(2, 2, 2);
-     font-size: 2.25vh;
-     text-align: center;
-   }
+}
 
-   /* #layered-img {
-     position: relative;
-   } */
 
-   #loadingscreen #layered-img img {
-      bottom: 0%;
-      right: 0%;
-      position: absolute;
-      /* z-index: 99; */
-      width: 100vw;
-      height: 100vh;
-   }
-   
-   .answerField {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     width: 100%;
-     padding: 10px;
-   }
-   

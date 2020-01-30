@@ -93,179 +93,6 @@
      }
    }
    
-   /* Parallax Movement CSS */
-   #parallax-main{
-     display: block;
-     height: 150vh;
-     opacity: 1;
-     overflow: hidden;
-   }
-   
-   #parallax-main #header {
-     color: #fff;
-     font-family: AliceInWonderland;
-     text-align: center;
-     font-size: 10vh;
-     top: 60%;
-   }
-   
-   .glow {
-     font-size: 80px;
-     text-align: center;
-     -webkit-animation: glow 1s ease-in-out infinite alternate;
-     -moz-animation: glow 1s ease-in-out infinite alternate;
-     animation: glow 1s ease-in-out infinite alternate;
-   }
-   
-   @-webkit-keyframes glow {
-     from {
-       text-shadow: 0 0 10px #f1f1f1, 0 0 10px #f1f1f1, 0 0 10px #fafafa, 0 0 20px #fafafa, 0 0 30px #fafafa, 0 0 40px #fafafa, 0 0 40px #fafafa;
-     }
-     to {
-       text-shadow: 0 0 20px #f1f1f1, 0 0 30px #f1f1f1, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff;
-     }
-   }
-   
-   #parallax-main div{
-     position: fixed;
-     top: 0;
-     background-position: top;
-     background-size: cover;
-     background-repeat: no-repeat;
-     height: 150vh;
-     width: 100%;
-   }
-   
-   .nonparallax{
-     overflow: hidden;
-     position: relative;
-     width: 100%;
-   }
-   
-   /* Overlay / Side Screen */
-   #static{
-     position: fixed;
-     background-position: center;
-     width: 100%;
-     top: 0;
-   }
-   
-   #static img{
-     position: absolute;
-     transform: scale(1.5);
-   }
-   
-   /* Button CSS */
-   button{
-     background-color: transparent;
-     background-repeat: no-repeat;
-     border: 2px solid #dfdfdf;
-     text-align: center;
-   }
-   
-   button span{
-     font-size: 3vh;
-     color: #dfdfdf;
-     letter-spacing: .8vw;
-     white-space: nowrap;
-     padding-left: .8vw;
-   }
-   
-   #down1{
-     bottom: 0;
-     position: absolute;
-     width: 100%;
-     padding-bottom: 30px;
-     text-align: center;
-   }
-   
-   /* Background Styling */
-   .gap{
-     background-image: url('../img/bg_main.png');
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     height: 20000px;
-     width: 100%;
-     -webkit-transition: opacity 1.5s;
-     -webkit-transition-timing-function: ease-in;
-     transition: opacity 1.5s;
-     transition-timing-function: ease-in;
-   }
-   
-   /* Click Me and Query Styling */
-   
-   .clickme{
-     display: inline-block;
-     position: absolute;
-     bottom: 20vh;
-     left: 50%;
-     margin-left: -200px;
-     -webkit-transition: opacity 1.5s;
-     -webkit-transition-timing-function: ease-in;
-     transition: opacity 1.5s;
-     transition-timing-function: ease-in;
-     height: 400px;
-     width: 400px;
-     border-radius: 5vw;
-     transform: rotate(30deg);
-     text-align: center;
-   }
-   
-   .clickme:before, .clickme:after, .clickme span {
-     position: absolute;
-     content: '';
-     height: 100%;
-     width: 100%;
-     top: 0%;
-     left: 0%;
-     border-radius: 50%;
-     margin-top: 150px;
-     margin-left: 23px;
-     box-shadow: 0 0 15px #f6ce3e;
-     animation: pulseEffect 4s ease-out infinite;
-   }
-   
-   .clickme:after {
-     animation-delay: .66s;
-   }
-   
-   .clickme span{
-     animation-delay: 1.33s;
-   }
-   
-   @keyframes pulseEffect {
-     0% {
-       opacity: 0;
-       transform: scale(.1);
-     }
-     80% {
-       opacity: 1;
-     }
-     100% {
-       transform: scale(.8);
-       opacity: 0;
-     }
-   }
-   
-   .queries{
-     /* background-image: url('../img/bg.png'); */
-     display: inline-block;
-     opacity: 0;
-     z-index: -9950;
-     position: absolute;
-     bottom: 10vh;
-     height: 80vh;
-     font-size: 36px;
-     width: 100%;
-     overflow-x: hidden;
-     color: #ffffff;
-     -webkit-transition: opacity 1.5s;
-     -webkit-transition-timing-function: ease-out;
-     transition: opacity 1.5s;
-     transition-timing-function: ease-out;
-   }
-   
    /* Form Styling */
    
    .answerField div {
@@ -418,6 +245,7 @@
    }
    
    #loadingscreen #circuit-logo {
+     /* z-index: 99999; */
      width: 100%;
      height: 100%;
      -webkit-animation-delay: 1.5s;
@@ -436,6 +264,7 @@
    }
    
    #loadingscreen #disclaimer {
+     z-index: 9999;
      position: absolute;
      bottom: 10%;
      right: 50%;
@@ -446,11 +275,13 @@
      text-align: center;
    }
 
-   #layered-img {
+   /* #layered-img {
      position: relative;
-   }
+   } */
 
-   #layered-img img {
+   #loadingscreen #layered-img img {
+      bottom: 0%;
+      right: 0%;
       position: absolute;
       z-index: 99;
       width: 100vw;

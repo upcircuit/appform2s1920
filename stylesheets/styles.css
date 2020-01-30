@@ -245,7 +245,7 @@
    }
    
    #loadingscreen #circuit-logo {
-     /* z-index: 99999; */
+     z-index: 99999;
      width: 100%;
      height: 100%;
      -webkit-animation-delay: 1.5s;
@@ -259,8 +259,9 @@
    }
    
    #loadingscreen #circuit-logo:hover{
-     transform: scale(1.1);
-     transition: all ease 500ms;
+      z-index: 99999;
+      transform: scale(1.1);
+      transition: all ease 500ms;
    }
    
    #loadingscreen #disclaimer {
@@ -283,7 +284,7 @@
       bottom: 0%;
       right: 0%;
       position: absolute;
-      z-index: 99;
+      /* z-index: 99; */
       width: 100vw;
       height: 100vh;
    }

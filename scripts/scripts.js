@@ -7,7 +7,7 @@ $(document).ready(function(){
      overflow: 'hidden'
      });
      $('html, body').animate({
-     scrollTop: $(".queries").offset().top
+     scrollTop: $(".container").offset().top
      }, scrollTimer, 'easeInOutQuart');
      // $("#parallax-main").fadeOut(2000);
      });

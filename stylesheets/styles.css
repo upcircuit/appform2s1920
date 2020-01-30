@@ -445,6 +445,17 @@
      font-size: 2.25vh;
      text-align: center;
    }
+
+   #layered-img {
+     position: relative;
+   }
+
+   #layered-img img {
+      position: absolute;
+      z-index: 99;
+      width: 100vw;
+      height: 100vh;
+   }
    
    .answerField {
      display: flex;

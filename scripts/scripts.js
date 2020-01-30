@@ -21,7 +21,7 @@ $(window).on("load", function(){
      $("#circuit-logo").click(function(){
           $(this).scrollTop(0);
           $('#loadingscreen').css({
-          opacity: '0'
+               opacity: '0'
           }).delay(delayTimer).queue(function(next){
           $(this).css({ zIndex: '-9980' });
           next();
@@ -36,18 +36,14 @@ $(window).on("load", function(){
      });
 
      $('form').submit(function(){
-          $('.queries').css({
+          $('.container').css({
                opacity: '0'
-          }).delay(1500).queue(function(next){
-               $('.gap').css({ opacity: '0' });
+          }).delay(0).queue(function(next){
                $(this).css({ zIndex: '-9950' });
                next();
           }).delay(1500).queue(function(next){
                $('#end-container').css({ zIndex: '9940' });
                $('#end-container').css({ opacity: '1' });
-               next();
-          }).delay(1500).queue(function(next){
-               $('.gap').css({ opacity: '1' });
                next();
           });
      });

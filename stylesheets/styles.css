@@ -234,8 +234,7 @@ body, html{
      margin-bottom: 1vh;
 }   
 .answerField div input[type='text']{
-     /* line-height: 3vh; */
-     /* color: #dfdfdf; */
+     font-size: 20px;
      border: none;
      /* border-bottom: 2px solid #dfdfdf; */
      background: transparent;
